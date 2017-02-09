@@ -1,0 +1,438 @@
+/*
+ * Globals
+ */
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #808080;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    margin-top: 0;
+    font-family: "Raleway", sans-serif;
+}
+
+.sideshadow {
+    box-shadow: 12px 0 15px -4px rgba(31, 73, 75, 0.1), -12px 0px 15px -4px rgba(31, 73, 75, 0.1);
+}
+
+/*
+ * Override Bootstrap's default container.
+ * On medias with min-width 1200px, .container = 1200px
+ */
+@media (min-width: 1200px) {
+    .container {
+        width: 1200px;
+    }
+}
+
+/*
+ * Masthead for nav
+ */
+.blog-menu {
+    background-color: #ee474f;
+    -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+            box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+}
+
+/* Nav links */
+.blog-nav-item {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    font-weight: 600;
+    color: #cdddeb;
+}
+.blog-nav-item:hover,
+.blog-nav-item:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Active state gets a caret at the bottom */
+.blog-nav .active {
+    color: #fff;
+}
+.blog-nav .active:after {
+    color: #000;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -5px;
+    vertical-align: middle;
+    content: " ";
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid;
+    border-left: 5px solid transparent;
+}
+.blog-nav li {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    font-weight: 400;	
+}
+.blog-nav li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* Blog logo, name and description *********************************************/
+ 
+
+.blog-header {  
+    background-color: #000;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.blog-header a{   
+    text-decoration: none;
+    display: block;
+}
+.blog-header img {
+    width: 150px;
+    display: inline-block;
+}
+#header-titles {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0px 5px;
+}
+/* For small devices center logo, blog name and description */
+@media ( max-width: 768px ) {
+    .blog-header img{   
+        display: block;
+        margin: 0 auto;
+    }
+    #header-titles {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .attachment-homepage-thumb {
+        width: 100%;
+        height: 100%;
+    }
+}
+.blog-header a h1{   
+    color: #fff;
+}
+.blog-name {
+    margin-top: 25px;
+    margin-bottom: 0;
+    font-size: 60px;
+    font-weight: 200;
+}
+.blog-description {
+    font-size: 20px;
+    color: #999;
+}
+
+
+/*
+ * Main column
+ */
+.blog-main {
+    font-size: 14px;
+    line-height: 1.5;
+    
+    padding-top: 50px;
+}
+
+/* Sidebar ********************************************************************/
+
+.sidebar-main {
+    padding-top: 50px;
+}
+.module {
+    margin-bottom: 30px;
+}
+.sidebar-main ul {
+    list-style: none;
+    padding-left: 20px;
+}
+.sidebar-main ul li {
+    margin-bottom: 3px;
+}
+.sidebar-main ul li a {
+    color: #666;
+}
+.sidebar-main h2 {
+    font-family: 'Oswald', sans-serif;
+    background-color: #f2f2f2;
+    border-bottom: #eb9812 3px solid;
+    font-size: 1.8em;
+    text-align: center;
+    color: #666;
+    padding: 20px 0px;
+    margin-bottom: 30px;
+}
+
+/*.sidebar-module {
+    padding: 15px;
+    margin: 0 -15px 15px;
+}
+.sidebar-module-inset {
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+.sidebar-module-inset p:last-child,
+.sidebar-module-inset ul:last-child,
+.sidebar-module-inset ol:last-child {
+    margin-bottom: 0;
+}*/
+
+/* Index content (Blog posts) *************************************************/
+ 
+.blog-post {
+    margin-bottom: 60px;
+}
+
+/* Post Picture and Post Meta divs */
+
+.post-picture {
+    display: inline-block;
+    width: 52%;
+    /*margin-right: -4px;*/
+}
+.post-meta {
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+}
+@media ( max-width: 768px ) {
+    .post-picture {       
+        width: 100%;
+        margin-right: 0px;
+    }
+    .post-meta {       
+        width: 100%;
+    }
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+    .post-picture { 
+        display: block;
+        width: 100%;
+        margin-right: 0px;
+    }
+    .post-meta {      
+        display: block;
+        width: 100%;
+    }
+    .index-images img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+.index-images {
+    position: relative;
+}
+.index-images img {
+    max-width: 100%;
+    height: auto;
+}
+.index-rating {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 85px;
+    height: 80px;
+    background-color: rgba(255, 175, 0, 0.85);
+    
+    padding: 2px;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    color: white;
+}
+.index-rating a {    
+    color: white;
+    text-decoration: none;
+    font-size: 2.2em;
+}
+.onewordreview {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8em;
+}
+
+.index-meta {
+    background-color: #f2f2f2;
+    padding: 20px;
+    height: 268px;
+}
+.index-meta .blog-post-title {
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+.index-meta .blog-post-title a {
+    color: #4d4d4d;
+}
+.index-meta .blog-post-meta a {
+    color: #7d7d7d;
+}
+.index-meta .blog-post-meta {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: #7d7d7d;
+}
+.index-author{
+    margin-right: 10px;
+}
+.index-date{
+    margin-right: 10px;
+}
+.index-meta .blog-post-meta i {
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+
+
+/* Search form on index  *******************************************************/
+
+.label-search {
+    vertical-align: top;
+    width: calc(100% - 50px);
+}
+.input-search {
+    border-left: none;
+    border-top: 2px solid #ddd;
+    border-right: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    padding: 5px;
+    font-size: 1.2em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    height: 50px;
+    width: 100%;
+    background-color: #f5f5f5;
+}
+.search-submit {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #ccc;
+    color: white;
+    background-color: #ccc;
+    font-size: 1.5em;
+}
+
+/* Pagination ******************************************************************/
+
+.pager {
+    margin-bottom: 60px;
+    text-align: left;
+}
+.pager > li > a {
+    width: 140px;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 30px;
+}
+
+
+/* Single Movie Post ***********************************************************/
+
+#movie-single-content {
+    background-color: white;    
+    padding: 60px 220px 60px 220px;
+}
+
+.movie-background {
+/*    background-size: cover;    
+    position: absolute;
+    z-index: -5;
+    height: 950px;
+    width: 100%;*/
+    
+    background-size: cover;    
+    background-repeat: no-repeat;
+    padding-right: 0;
+    padding-left: 0;
+    left: 0;
+    right: 0;
+    background-position: top;
+}
+#movie-header {
+    color: white;    
+    font-family: 'Oswald', sans-serif;
+    height: 200px;
+    width: 100%;
+    display: table;
+}
+#centered-block {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+#movie-header h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3em;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+}
+
+#movie-meta {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1em;
+    /*letter-spacing: 1px;*/
+    /*margin-bottom: 20px;*/
+    color: #FFF;
+}
+#movie-meta a{
+    color: #fff;
+}
+#movie-meta .index-author{
+    margin-right: 10px;
+}
+#movie-meta .index-date{
+    margin-right: 10px;
+}
+#movie-meta i {
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+
+
+#movie-content img {
+    width: 100%;
+    height: auto;
+}
+/*.movie-images {
+    width: 100%;
+    height: auto;
+}*/
+#movie-comments {
+
+}
+
+#commentform {
+    margin-bottom: 0;
+}
+p.form-submit{
+    margin-bottom: 0;
+}
+
+/* Footer **********************************************************************/
+
+.blog-footer {
+    padding: 40px 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e5e5e5;
+}
+.blog-footer p:last-child {
+    margin-bottom: 0;
+}
