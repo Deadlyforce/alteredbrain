@@ -93,7 +93,7 @@ function my_custom_posts() {
         'hierarchical' => false,
         
         'description' => 'Movie post type',        
-        'supports' => array( 'title', 'editor', 'thumbnail', 'author', 'comments' ),
+        'supports' => array( 'title', 'editor', 'thumbnail', 'author' ),
         'taxonomies' => array(
             'post_tag',
             'category'
@@ -148,25 +148,99 @@ function my_custom_taxonomies() {
         'rewrite' => array( 'slug' => 'ratings' )
     );        
             
-    register_taxonomy('rating', array( 'movies'), $args);
+    register_taxonomy( 'rating', array( 'movies'), $args );
+    
+    // Year of release hierarchical taxonomy
+    $year_labels = array(
+        'name' => 'Years of release',
+        'singular_name' => 'Year of release',
+        'search_items' => 'Search Years of release',
+        'all_items' => 'All Years of release',
+        'parent_item' => 'Parent of Year of release',
+        'parent_item_colon' => 'Parent of Year of release:',
+        'edit_item' => 'Edit Year of release',
+        'update_item' => 'Update Year of release',
+        'add_new_item' => 'Add New Year of release',
+        'new_item_name' => 'New Year of release',
+        'menu_name' => 'Year of release'
+    );    
+            
+    $year_args = array(
+        'hierarchical' => true,
+        'labels' => $year_labels,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array( 'slug' => 'yearsofrelease' )
+    );        
+            
+    register_taxonomy( 'year_of_release', array( 'movies'), $year_args );
+    
+    // Directors flat taxonomy
+    $director_labels = array(
+        'name' => 'Directors',
+        'singular_name' => 'Director',
+        'search_items' => 'Search Directors',
+        'all_items' => 'All Directors',
+        'parent_item' => 'Parent of Director',
+        'parent_item_colon' => 'Parent of Director:',
+        'edit_item' => 'Edit Director',
+        'update_item' => 'Update Director',
+        'add_new_item' => 'Add New Director',
+        'new_item_name' => 'New Director',
+        'menu_name' => 'Director'
+    );    
+            
+    $director_args = array(
+        'hierarchical' => false,
+        'labels' => $director_labels,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array( 'slug' => 'directors' )
+    );        
+            
+    register_taxonomy( 'director', array( 'movies'), $director_args );
+    
+    // Actors flat taxonomy
+    $actor_labels = array(
+        'name' => 'Actors',
+        'singular_name' => 'Actor',
+        'search_items' => 'Search Actors',
+        'all_items' => 'All Actors',
+        'parent_item' => 'Parent of Actor',
+        'parent_item_colon' => 'Parent of Actor:',
+        'edit_item' => 'Edit Actor',
+        'update_item' => 'Update Actor',
+        'add_new_item' => 'Add New Actor',
+        'new_item_name' => 'New Actor',
+        'menu_name' => 'Actor'
+    );    
+            
+    $actor_args = array(
+        'hierarchical' => false,
+        'labels' => $actor_labels,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array( 'slug' => 'actors' )
+    );        
+            
+    register_taxonomy( 'actor', array( 'movies'), $actor_args );
 }
-add_action('init', 'my_custom_taxonomies');
+add_action( 'init', 'my_custom_taxonomies' );
 
 
 /******************************** CUSTOM FIELDS *****************************************/
+
+/* Movie notes *****************************************/
 
 add_action('load-post.php', 'movie_notes_meta_boxes_setup');
 add_action('load-post-new.php', 'movie_notes_meta_boxes_setup');
 
 function movie_notes_meta_boxes_setup () {
-    /**
-     * Adds a movie notes meta box
-     */
-    add_action('add_meta_boxes', 'add_movie_notes_meta_box');
-    /**
-     * Saves the movie notes meta
-     */
-    add_action('save_post', 'save_movie_notes_meta', 10, 2);
+    add_action('add_meta_boxes', 'add_movie_notes_meta_box'); // Adds a movie notes meta box
+    add_action('save_post', 'save_movie_notes_meta', 10, 2); // Saves the movie notes meta
 }
 
 function add_movie_notes_meta_box () {

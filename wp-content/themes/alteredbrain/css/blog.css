@@ -404,15 +404,22 @@ h6, .h6 {
     margin-right: 5px;
 }
 
-
+#movie-content .wp-caption {
+    margin-top: 15px;
+}
 #movie-content img {
     width: 100%;
     height: auto;
 }
-/*.movie-images {
-    width: 100%;
-    height: auto;
-}*/
+#movie-content .wp-caption-text {
+    color: #FFF;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    letter-spacing: 1px;
+    background-color: #333;
+    margin-bottom: 30px;
+}
+
 #movie-comments {
 
 }
