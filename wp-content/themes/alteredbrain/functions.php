@@ -371,7 +371,7 @@ function all_my_posts( $query ) {
 add_action( 'pre_get_posts', 'all_my_posts' );
 
 
-// Adding the Open Graph in the Language Attributes ********************************
+// (Facebook) Adding the Open Graph in the Language Attributes ********************************
 
 function add_opengraph_doctype( $output ) {
     return $output . ' xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"';

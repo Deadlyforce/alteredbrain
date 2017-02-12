@@ -23,7 +23,7 @@ $author_id = $post->post_author;
             <div id="centered-block">
                 <h1><?php the_title(); ?></h1>
                 <div id="movie-meta">
-                    <span class="index-author"><i class="fa fa-user" aria-hidden="true"></i><a href="#"><?php the_author_meta( 'nickname', $author_id ); ?></a></span>
+                    <span class="index-author"><i class="fa fa-user" aria-hidden="true"></i><a href="<?php echo get_author_posts_url( $author_id ); ?>"><?php the_author_meta( 'nickname', $author_id ); ?></a></span>
                     <span class="index-date"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo get_the_time( get_option('date_format'), $post->ID ); ?></span>
                     <?php
                         if ( strlen(get_the_term_list($post->ID, 'category', '', ', ', '')) > 220 ) {
@@ -51,7 +51,7 @@ $author_id = $post->post_author;
                 }
                 ?>
             <!--</div>-->
-            <div id="movie-comments">    
+            <div id="movie-comments">                    
                 <?php
                 if ( comments_open() || get_comments_number() != '0' ) : 
                     comments_template();

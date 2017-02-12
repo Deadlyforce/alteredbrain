@@ -31,7 +31,7 @@
                     <div class="index-meta">
                         <h2 class="blog-post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                         <div class="blog-post-meta">
-                            <span class="index-author"><i class="fa fa-user" aria-hidden="true"></i><a href="#"><?php the_author(); ?></a></span>
+                            <span class="index-author"><i class="fa fa-user" aria-hidden="true"></i><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
                             <span class="index-date"><i class="fa fa-clock-o" aria-hidden="true"></i><?php the_date(); ?></span>
                             <?php
                                 if ( strlen(get_the_term_list($post->ID, 'category', '', ', ', '')) > 220 ) {

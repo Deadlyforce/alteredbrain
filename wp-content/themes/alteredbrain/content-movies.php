@@ -135,13 +135,83 @@
                 </div>
             </div>
             <div class="related-movies">
+                <h3>Related Movies</h3>
                 <?php
                     $categories = get_the_category();
+                    
                     if ( !empty( $categories ) ) {
                         $first_category = $categories[0]->name;
                     }
-                    var_dump($first_category);
-                ?>
+                    
+                    $first_movie_args = array(
+                        'category_name' => $first_category,
+                        'posts_per_page' => 1,
+                        'orderby' => 'date',
+                        'order' => 'DESC'
+                    );
+                    $second_movie_args = array(
+                        'category_name' => $first_category,
+                        'offset' => 1,
+                        'posts_per_page' => 1,
+                        'orderby' => 'date',
+                        'order' => 'DESC'
+                    );
+                    
+                    $firstRelMovie = new WP_Query( $first_movie_args );
+                    $secondRelMovie = new WP_Query( $second_movie_args );                                           
+                    ?>
+                    <div class="halfcolumn-related">        
+                        <div class="rel-nav related-left">
+                            <?php
+                            if ( $firstRelMovie->have_posts() ) {
+                                while ( $firstRelMovie->have_posts() ) : $firstRelMovie->the_post();
+                                ?>
+                                    <?php the_post_thumbnail( 'homepage-thumb' ); ?>                                    
+                                <?php
+                                endwhile;
+                                ?>
+                                <div class="rel-movie-infos">
+                                    <a class="rel-movie-title" href="<?php the_permalink() ?>" rel="" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+                                    <p>
+                                        <span class="rel-movie-author"><i class="fa fa-user" aria-hidden="true"></i><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
+                                        <span class=""><i class="fa fa-clock-o" aria-hidden="true"></i><?php the_date(); ?></span>
+                                    </p>
+                                </div>
+                                <?php
+                            } else {
+
+                            }                                
+                            ?>                            
+                        </div>
+                    </div><!--
+                 --><div class="halfcolumn-related">
+                        <div class="rel-nav related-right">
+                            <?php
+                            if ( $secondRelMovie->have_posts() ) {
+                                while ( $secondRelMovie->have_posts() ) : $secondRelMovie->the_post();
+                                    ?>
+                                        <?php the_post_thumbnail( 'homepage-thumb' ); ?>                                        
+                                    <?php
+                                endwhile;
+                                ?>
+                                <div class="rel-movie-infos">
+                                    <a class="rel-movie-title" href="<?php the_permalink() ?>" rel="" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+                                    <p>
+                                        <span class="rel-movie-author"><i class="fa fa-user" aria-hidden="true"></i><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
+                                        <span class=""><i class="fa fa-clock-o" aria-hidden="true"></i><?php the_date(); ?></span>
+                                    </p>
+                                </div>
+                                <?php
+                            } else {
+
+                            }                                
+                            ?>
+                        </div>
+                    </div>                            
+                    <?php                       
+                    
+                    wp_reset_query();
+                ?>                
             </div>
         </div>
     </div>

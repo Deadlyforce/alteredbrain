@@ -534,7 +534,6 @@ span.infos-titles{
     display: inline-block;
     vertical-align: top;
     width: 50%;
-    /*height: 100px;*/
 }
 .halfcolumn a {
     color: #808080;
@@ -569,14 +568,15 @@ span.infos-titles{
 
 /* Author ****************************/
 
-.author-about {
-    margin-bottom: 30px;
-}
-.author-about h3 {
+#movie-content h3 {
     font-family: 'Oswald', sans-serif;
     border-bottom: 7px solid #F0F0F0;
     padding-bottom: 12px;
     margin-bottom: 25px;
+}
+
+.author-about {
+    margin-bottom: 40px;
 }
 .author-about a {
     display: inline-block;
@@ -596,9 +596,70 @@ span.infos-titles{
     margin-bottom: 10px;
 }
 
-/* Comments **************************/
+/* Related Movies **************************/
+
+.related-movies {
+    margin-bottom: 40px;
+}
+.halfcolumn-related {
+    font-family: 'Oswald', sans-serif;
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+}
+.halfcolumn-related img {
+    width: 100%;
+    height: auto;
+}
+.halfcolumn-related a {
+    color: #fff;
+}
+.halfcolumn-related .rel-movie-title {    
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+}
+.rel-nav {
+    position: relative;
+}
+.related-left {
+    margin-right: 5px;
+}
+.related-right {
+    margin-left: 5px;
+}
+.rel-movie-infos {
+    position: absolute;
+    bottom: 0;
+    /*background-color: rgba(255,255,255, 0.2);*/
+    width: 100%;
+    text-align: center;
+    padding: 15px 5px;
+}
+.rel-movie-infos p {
+    color: white;
+    font-size: 0.9em;
+}
+.rel-movie-infos i {
+    color: white;
+    font-size: 0.9em;
+    margin-right: 5px;
+}
+.rel-movie-author {
+    margin-right: 10px;
+}
+
+
+/* Comments ********************************/
 #movie-comments {
 
+}
+#reply-title {
+    font-family: 'Oswald', sans-serif;
+    border-bottom: 7px solid #F0F0F0;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
 }
 
 #commentform {
