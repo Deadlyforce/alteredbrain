@@ -21,7 +21,7 @@ $author_id = $post->post_author;
     <div class="row">
         <div id="movie-header">
             <div id="centered-block">
-                <h2><?php the_title(); ?></h2>
+                <h1><?php the_title(); ?></h1>
                 <div id="movie-meta">
                     <span class="index-author"><i class="fa fa-user" aria-hidden="true"></i><a href="#"><?php the_author_meta( 'nickname', $author_id ); ?></a></span>
                     <span class="index-date"><i class="fa fa-clock-o" aria-hidden="true"></i><?php echo get_the_time( get_option('date_format'), $post->ID ); ?></span>
@@ -69,26 +69,38 @@ get_footer();
     jQuery(document).ready(function($){      
         $(".container").removeClass('sideshadow');
         
-        setHeights();
-        
-        $(window).resize(function(){
-            var screenheight = $(window).innerHeight();
-
-            $(".movie-background").height( screenheight );
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            /* La largeur max de l'affichage est 768px inclus */
+            var ratio = 0.4;
+            setHeights( ratio );
+        } else {
+            /* L'affichage est supérieur à 768px de large */
+            var ratio = 0.6;
             
-            var div_height = Math.round( 0.6 * screenheight ); 
-            $("#movie-header").height(div_height);
-        });
+            setHeights( ratio );
+        
+            $(window).resize(function(){
+                var screenheight = $(window).innerHeight();
+
+                $(".movie-background").height( screenheight );
+
+                var div_height = Math.round( ratio * screenheight ); 
+                $("#movie-header").height(div_height);
+            });
+        }
+        
+        
+        // Functions ***********************************************************
         
         /**
          * Set initial heights at page startup
          * @returns {undefined}
          */
-        function setHeights () {
+        function setHeights ( ratio ) {
             var screenheight = $(window).innerHeight();
             $(".movie-background").height( screenheight );
 
-            var div_height = Math.round( 0.6 * screenheight ); 
+            var div_height = Math.round( ratio * screenheight ); 
             $("#movie-header").height(div_height);
         }
     });    

@@ -344,16 +344,17 @@ h6, .h6 {
 
 #movie-single-content {
     background-color: white;    
-    padding: 60px 220px 60px 220px;
+    padding: 60px 220px;
 }
+@media ( max-width: 768px ) {
+    #movie-single-content {        
+        padding: 60px 10px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1200px) {
 
-.movie-background {
-/*    background-size: cover;    
-    position: absolute;
-    z-index: -5;
-    height: 950px;
-    width: 100%;*/
-    
+}
+.movie-background {   
     background-size: cover;    
     background-repeat: no-repeat;
     padding-right: 0;
@@ -374,7 +375,7 @@ h6, .h6 {
     vertical-align: middle;
     text-align: center;
 }
-#movie-header h2 {
+#movie-header h1 {
     font-family: 'Oswald', sans-serif;
     font-size: 3em;
     text-transform: uppercase;
@@ -404,10 +405,24 @@ h6, .h6 {
     margin-right: 5px;
 }
 
+#movie-infos {
+    margin-bottom: 35px;
+}
+#movie-infos ul {
+    padding: 0;
+    list-style: none;
+}
+#movie-infos ul li {
+    margin-bottom: 5px;
+}
+span.infos-titles{
+    margin-right: 10px;
+}
+
 #movie-content .wp-caption {
     margin-top: 15px;
 }
-#movie-content img {
+.the-content img{
     width: 100%;
     height: auto;
 }
@@ -419,7 +434,169 @@ h6, .h6 {
     background-color: #333;
     margin-bottom: 30px;
 }
+#movie-ratings {
+    background-color: #eee;
+    margin: 30px 0px 40px 0px;
+    padding: 0px 0px 20px 0px;
+    font-family: 'Oswald', sans-serif;
+}
+#movie-ratings h5 {
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    font-size: 1.3em;
+    padding: 30px 0px;
+    margin: 0;
+    text-transform: uppercase;
+}
+#movie-notes {
+    padding-left: 30px;
+    margin-bottom: 15px;
+}
+#movie-notes ul {
+    padding-left: 15px;
+}
+#movie-notes ul li {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    list-style-type: square;
+}
+#movie-notes p {
+    font-size: 1.3em;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+#movie-notes #positives {
 
+}
+#movie-notes #negatives {
+
+}
+#movie-rating {
+    color: #EB9812;
+    border: 2px solid #EB9812;
+    text-align: center;
+    /*width: 145px;*/
+    width: 85%;
+    margin: 0 auto;
+}
+#movie-rating a {
+    font-size: 5em;
+    color: #EB9812;
+    text-decoration: none;
+}
+#movie-rating p {
+    font-size: 1.2em;
+}
+
+.tags {
+    margin-bottom: 20px;    
+}
+.tags a {
+    display: inline-block;
+    color: #999999;
+    background-color: #F7F7F7;
+    text-decoration: none;
+    border: 2px solid #E9E9E9;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+}
+
+/* Social buttons *********************/
+.social-medias {
+    background-color: #eee;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+}
+.share-title {
+    font-family: 'Oswald', sans-serif;
+    display: inline-block;
+    margin-right: 30px;
+    font-size: 1.1em;
+}
+.fb-share-button, .fb-like {
+    margin-right: 15px;
+}
+.twitter {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 3px;
+}
+
+/* Previous Next *********************/
+
+.prevnextmovie {
+    margin-bottom: 40px;
+}
+.halfcolumn {
+    font-family: 'Oswald', sans-serif;
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    /*height: 100px;*/
+}
+.halfcolumn a {
+    color: #808080;
+}
+.prev i {
+    margin-right: 10px;
+}
+.next i {
+    margin-left: 10px;
+}
+.movie-nav{
+    display: table;
+    width: 100%;
+    background-color: #eee;    
+    height: 120px;
+    text-align: center;
+    font-size: 1.2em;
+}
+.movie-nav a, .movie-nav p {
+    display: table-cell;
+    vertical-align: middle;
+}
+.prev {
+    margin-right: 5px;
+}
+.next {
+    margin-left: 5px;
+}
+.prev p, .next p {
+    color: #ccc;
+}
+
+/* Author ****************************/
+
+.author-about {
+    margin-bottom: 30px;
+}
+.author-about h3 {
+    font-family: 'Oswald', sans-serif;
+    border-bottom: 7px solid #F0F0F0;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+}
+.author-about a {
+    display: inline-block;
+    margin-right: 20px;
+}
+.author-about a img {
+    border-radius: 64px;
+}
+.author-meta {
+    display: inline-block;
+    vertical-align: top;
+}
+.author-meta a {
+    color: #808080;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.6em;
+    margin-bottom: 10px;
+}
+
+/* Comments **************************/
 #movie-comments {
 
 }
