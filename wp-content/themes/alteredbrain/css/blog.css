@@ -650,6 +650,17 @@ span.infos-titles{
     margin-right: 10px;
 }
 
+@media ( max-width: 768px ) {
+    .halfcolumn-related {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .related-left, .related-right {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+}
+
 
 /* Comments ********************************/
 #movie-comments {
@@ -661,13 +672,101 @@ span.infos-titles{
     padding-bottom: 12px;
     margin-bottom: 25px;
 }
-
+#respond {
+    margin-bottom: 40px;
+}
 #commentform {
     margin-bottom: 0;
 }
-p.form-submit{
+#commentform p {
+    margin-bottom: 20px;
+}
+#commentform label {
+    font-size: 1.3em;
+    font-weight: 400;
+}
+input#email, input#author, input#url {
+    width: 100%;
+    background-color: #F7F7F7;
+    border: 3px solid #E9E9E9;
+    height: 50px;
+    font-size: 1.3em;
+}
+p.comment-notes {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+p.comment-form-comment label {
+    
+}
+p.comment-form-comment textarea {
+    width: 100%;
+    background-color: #F7F7F7;
+    border: 3px solid #E9E9E9;
+    font-size: 1.3em;
+}
+p.form-submit {
     margin-bottom: 0;
 }
+p.form-submit input{
+    font-family: 'Oswald', sans-serif;
+    background-color: #F7F7F7;
+    border: 3px solid #E9E9E9;
+    font-size: 1.5em;
+    padding: 10px 15px;
+}
+
+/* Comment list ********************************/
+
+#comments h3 {
+    font-family: 'Oswald', sans-serif;
+    border-bottom: 7px solid #F0F0F0;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+}
+ul.comment-list {
+    list-style: none;
+    padding-left: 0px;
+}
+.comment {
+    /*margin-bottom: 30px;*/
+}
+.comment article {
+    padding: 30px 0px;
+    border-bottom: 1px solid #eee;
+}
+.comment-grav-image img {
+    /*margin-left: 20px;*/
+}
+.vcard {
+    margin-bottom: 10px;
+}
+.author-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5em;
+}
+.comment-time {
+    font-weight: 200;
+}
+.comment-content {
+    margin-bottom: 20px;
+}
+a.comment-reply-link {
+    color: #666;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    background-color: #F7F7F7;
+    border: 2px solid #E9E9E9;
+    padding: 8px 20px;
+    display: block;
+    letter-spacing: 0.05em;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    float: left;
+    clear: left;
+}
+
 
 /* Footer **********************************************************************/
 

@@ -404,3 +404,59 @@ function insert_fb_in_head() {
 }
 add_action( 'wp_head', 'insert_fb_in_head', 5 );
 
+
+// CUSTOM COMMENTS LIST *********************************************************
+
+function custom_comments( $comment, $args, $depth ) {
+    
+    $GLOBALS['comment'] = $comment;
+    
+    switch( $comment->comment_type ) :
+        case 'pingback' :
+        case 'trackback' : ?>
+            <li <?php comment_class(); ?> id="comment<?php comment_ID(); ?>">
+                <div class="back-link">
+                    < ?php comment_author_link(); ?>
+                </div>
+            </li>
+        <?php 
+        break;
+        default : 
+        ?>
+            <li <?php comment_class(); ?> class="comment">
+                <article id="comment-<?php comment_ID(); ?>"> 
+                    <div class="row">
+                        <div class="col-sm-2 comment-grav-image">
+                            <?php echo get_avatar( $comment, 80 ); ?>
+                        </div>                   
+                        <div class="col-sm-10 comment-body">
+                            <header class="author vcard">                            
+                                <div class="author-name"><?php comment_author(); ?></div>
+                                <time <?php comment_time( 'c' ); ?> class="comment-time">
+                                    <span class="date"><?php comment_date(); ?></span>
+                                    <!--<span class="time"><?php // comment_time(); ?></span>-->
+                                </time>
+                            </header>
+                            <section class="comment-content">
+                                <?php comment_text(); ?>
+                            </section>  
+                            <footer class="comment-footer">                        
+                                <div class="reply">
+                                    <?php 
+                                    comment_reply_link( array_merge( $args, array( 
+                                        'reply_text' => 'Reply',
+                                        'depth' => $depth,
+                                        'max_depth' => $args['max_depth'] 
+                                    ) ) ); 
+                                    ?>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>                    
+                </article>
+            </li>
+        <?php // End the default styling of comment
+        break;
+    endswitch;
+}
+

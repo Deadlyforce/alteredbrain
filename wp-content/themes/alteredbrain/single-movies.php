@@ -46,18 +46,20 @@ $author_id = $post->post_author;
                 <?php 
                 if (have_posts()) { 
                     while(have_posts()) : the_post();
-                        get_template_part( 'content', 'movies' );                
+                        get_template_part( 'content', 'movies' );                     
+                    ?>
+                        <div id="movie-comments">                    
+                            <?php
+                            if ( comments_open() || get_comments_number() != '0' ) : 
+                                comments_template();
+                            endif; 
+                            ?>     
+                        </div>
+                    <?php
                     endwhile; 
                 }
                 ?>
-            <!--</div>-->
-            <div id="movie-comments">                    
-                <?php
-                if ( comments_open() || get_comments_number() != '0' ) : 
-                    comments_template();
-                endif; 
-                ?>     
-            </div>        
+            <!--</div>-->                    
         </div>
     </div>
 <?php 

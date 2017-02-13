@@ -5,18 +5,27 @@ if ( post_password_required() ) {
 ?>
 
 <div id="comments" class="comments-area">
+    <?php 
+        $args = array(
+            'title_reply' => __( 'Leave a Reply', 'textdomain' ),
+            'comment_notes_before' => '<p class="comment-notes">' . __( 'Your email address will not be published.' ) . ( $req ? $required_text : '' ) . '</p>',            
+            'comment_field'
+        );
+        
+        comment_form( $args ); 
+    ?>
     <?php if ( have_comments() ) : ?>
         <h3 class="comments-title">
             <?php
-            printf( _nx( 'One comment on “%2$s”', '%1$s comments on “%2$s”', get_comments_number(), 'comments title'),
-                number_format_i18n( get_comments_number() ), get_the_title() );
+            printf(_nx( 'One comment', '%1$s comments', get_comments_number(), 'comments title'), number_format_i18n( get_comments_number() ));            
             ?>
-        </h3>
+        </h3>        
         <ul class="comment-list">
             <?php 
             wp_list_comments( array(
+                'callback' => 'custom_comments',
                 'short_ping'  => true,
-                'avatar_size' => 50,
+                'avatar_size' => 80,
             ) );
             ?>
         </ul>
@@ -26,7 +35,5 @@ if ( post_password_required() ) {
         <p class="no-comments">
             <?php _e( 'Comments are closed.' ); ?>
         </p>
-    <?php endif; ?>
-    
-    <?php comment_form(); ?>
+    <?php endif; ?>   
 </div>
