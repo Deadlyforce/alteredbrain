@@ -650,6 +650,10 @@ span.infos-titles{
     margin-right: 10px;
 }
 
+.no-rel-movie img {
+    
+}
+
 @media ( max-width: 768px ) {
     .halfcolumn-related {
         width: 100%;
@@ -674,6 +678,7 @@ span.infos-titles{
 }
 #respond {
     margin-bottom: 40px;
+    margin-top: 40px;
 }
 #commentform {
     margin-bottom: 0;

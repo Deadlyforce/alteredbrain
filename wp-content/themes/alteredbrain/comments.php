@@ -5,15 +5,7 @@ if ( post_password_required() ) {
 ?>
 
 <div id="comments" class="comments-area">
-    <?php 
-        $args = array(
-            'title_reply' => __( 'Leave a Reply', 'textdomain' ),
-            'comment_notes_before' => '<p class="comment-notes">' . __( 'Your email address will not be published.' ) . ( $req ? $required_text : '' ) . '</p>',            
-            'comment_field'
-        );
-        
-        comment_form( $args ); 
-    ?>
+    
     <?php if ( have_comments() ) : ?>
         <h3 class="comments-title">
             <?php
@@ -35,5 +27,14 @@ if ( post_password_required() ) {
         <p class="no-comments">
             <?php _e( 'Comments are closed.' ); ?>
         </p>
-    <?php endif; ?>   
+    <?php endif; ?> 
+    <?php 
+    $args = array(
+        'title_reply' => __( 'Leave a Reply', 'textdomain' ),
+        'comment_notes_before' => '<p class="comment-notes">' . __( 'Your email address will not be published.' ) . ( $req ? $required_text : '' ) . '</p>',            
+        'comment_field'
+    );
+
+    comment_form( $args ); 
+    ?>
 </div>
